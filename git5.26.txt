@@ -1,0 +1,41 @@
+git 使用
+
+
+一、git 安装——网页下载或命令行安装
+二、创建版本库（repository
+       1、创建一个文件夹
+       2、定位至文件夹 cd file，
+       3、设置版本库管理：git config --global user.name "Ddddan Li"
+                                          git config --global user.email "1149205058@qq.com"
+       3、git init(创建版本库）/可open .git 查看系统git包含文件
+       4、创建文件
+       5、git status(git status -s)查看文件当前状态
+       6、git commit -m “修改名字“   提交修改
+       7、git log 查看修改记录
+       8、git diff（git diff —cached:提交stage后查看修改） 查看修改明细
+             git diff HEAD 之后执行git diff —cached:可查看已stage的修改
+             git diff：可查看未stage的修改
+三、返回上一个版本
+       1、返回至commit之前：git commit --amend --no-edit
+       2、返回至stage之前：git reset
+       3、返回上一个版本：git reset --hard HEAD
+       4、返回前面n个版本：git reset --hard HEAD~n
+       5、通过版本号返回：git reset --hard b3cd002
+       6、查看版本号：git reflow
+四、文件返回
+       1、返回上一步，相当于word等文件的撤销：git checkout 版本号（返回的版本号）— 文件名
+五、branch分支操作
+       1、建立并导航至分支：git branch 分支名+git checkout dev = git checkout -b 分支名
+       2、查看和返回分支：git branch/git checkout 分支名
+       3、add+创建commit：git commit -am “change name” 文件名
+       4、合并至其他分支：git merge --no-ff -m "keep merge info" dev
+       5、以图形方式查看：git log —online —graph
+六、merge分支冲突：同时修改两个文件都未读入成功，到master手动修改文件
+七、当有人修改了分支，你需要获取该分支的修改时，用rebase重新基于主分支
+
+
+八、临时修改
+       1、git stash
+       2、git stash pop
+九、撤销rebase
+       git reflog——git reset --hard HEAD@{3}
